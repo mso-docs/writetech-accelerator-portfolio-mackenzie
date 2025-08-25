@@ -20,7 +20,6 @@ This project showcases comprehensive API documentation authored using the OpenAP
 
 ## Resources  
 - [OpenAPI Specification](https://swagger.io/specification/)  
-- [Swagger UI](https://swagger.io/tools/swagger-ui/)  
-- [Project Source Code - COMING SOON!](URL)
+- [Swagger UI](https://swagger.io/tools/swagger-ui/)
 
 ---

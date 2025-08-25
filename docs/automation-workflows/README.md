@@ -20,7 +20,6 @@ This project focuses on automating code quality processes using linting and vali
 
 ## Resources  
 - [ESLint](https://eslint.org/)  
-- [GitHub Actions](https://docs.github.com/en/actions)  
-- [Project Source Code - COMING SOON!](URL)
+- [GitHub Actions](https://docs.github.com/en/actions)
 
 ---

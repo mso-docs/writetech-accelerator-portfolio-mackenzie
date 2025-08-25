@@ -17,7 +17,6 @@ This project highlights the creation of an AI model card and the application of 
 - Documentation site or repository includes AI-enhanced content  
 
 ## Resources  
-- [Model Cards for Model Reporting](https://modelcards.withgoogle.com/about)  
-- [Project Source Code - COMING SOON!](URL)
+- [Model Cards for Model Reporting](https://modelcards.withgoogle.com/about)
 
 ---

@@ -20,7 +20,6 @@ This project provides comprehensive documentation for a DevOps or cloud infrastr
 
 ## Resources  
 - [Terraform Documentation](https://www.terraform.io/docs)  
-- [AWS Documentation](https://docs.aws.amazon.com/)  
-- [Project Source Code - COMING SOON!](URL)
+- [AWS Documentation](https://docs.aws.amazon.com/)
 
 ---

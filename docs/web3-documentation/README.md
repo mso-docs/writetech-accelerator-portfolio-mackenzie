@@ -20,7 +20,6 @@ This project delivers detailed documentation for a Web3 project, including API r
 - Read the whitepaper for deep understanding  
 
 ## Resources  
-- [Ethereum Developer Docs](https://ethereum.org/en/developers/docs/)  
-- [Project Source Code - COMING SOON!](URL)
+- [Ethereum Developer Docs](https://ethereum.org/en/developers/docs/)
 
 ---
