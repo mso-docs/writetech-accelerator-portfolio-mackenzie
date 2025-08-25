@@ -4,29 +4,29 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Showcase Your Expertise',
+    title: 'Craft Clear Experiences',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Highlight your technical writing skills and experience with a portfolio that demonstrates your best work and unique strengths.
+        Transform complex ideas into user-friendly documentation that empowers developers, customers, and stakeholders.
       </>
     ),
   },
   {
-    title: 'Organize Your Projects',
+    title: 'Showcase Your Impact',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Easily categorize and present documentation samples, articles, and guides to help potential employers or clients find relevant examples.
+        From API references to UX research, highlight projects that demonstrate your ability to drive clarity and adoption across industries.
       </>
     ),
   },
   {
-    title: 'Built with Modern Tools',
+    title: 'Professional By Design',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Create a professional portfolio using React and Docusaurus, ensuring your site is fast, customizable, and easy to maintain.
+        Built on modern tools like React and Docusaurus, your portfolio reflects the same precision, structure, and scalability as your docs.
       </>
     ),
   },
