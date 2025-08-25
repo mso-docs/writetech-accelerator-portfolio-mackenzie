@@ -4,32 +4,29 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: 'Showcase Your Expertise',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Highlight your technical writing skills and experience with a portfolio that demonstrates your best work and unique strengths.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Organize Your Projects',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Easily categorize and present documentation samples, articles, and guides to help potential employers or clients find relevant examples.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Built with Modern Tools',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Create a professional portfolio using React and Docusaurus, ensuring your site is fast, customizable, and easy to maintain.
       </>
     ),
   },
@@ -39,7 +36,9 @@ function Feature({Svg, title, description}) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        <div className={styles.featureSvgWrapper}>
+          <Svg className={styles.featureSvg} role="img" />
+        </div>
       </div>
       <div className="text--center padding-horiz--md">
         <Heading as="h3">{title}</Heading>

@@ -1,30 +1,108 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
+.navbar,
+.navbar--dark,
+.theme-navbar {
+  background: var(--ifm-navbar-background-color) !important;
+  color: var(--ifm-navbar-link-color) !important;
+}
+.navbar__brand, .navbar__link {
+  color: var(--ifm-navbar-link-color) !important;
+}
+.navbar__link:hover {
+  color: var(--ifm-navbar-link-hover-color) !important;
+}
+/* Make dark/light mode toggle icon always white */
+.navbar__items .toggleButton svg,
+[data-theme='dark'] .navbar__items .toggleButton svg {
+  fill: #fff !important;
+  stroke: #fff !important;
+}
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-footer-background-color: #004d40 !important;
+  --ifm-footer-color: #fff !important;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+.footer,
+.footer--dark,
+.theme-footer {
+  background: #004d40 !important;
+  color: #fff !important;
+}
+
+.footer__link-item,
+.theme-footer .footer__link-item {
+  color: #fff !important;
+}
+:root {
+  --ifm-footer-background-color: #004d40 !important;
+  --ifm-footer-color: #fff !important;
+}
+
+.footer {
+  background: var(--ifm-footer-background-color) !important;
+  color: var(--ifm-footer-color) !important;
+}
+.footer__link-item {
+  color: var(--ifm-footer-color) !important;
+}
+:root {
+  /* Teal and Jade inspired palette */
+  --ifm-color-primary: #009688;
+  --ifm-color-primary-dark: #00796b;
+  --ifm-color-primary-darker: #00695c;
+  --ifm-color-primary-darkest: #004d40;
+  --ifm-color-primary-light: #26a69a;
+  --ifm-color-primary-lighter: #4db6ac;
+  --ifm-color-primary-lightest: #80cbc4;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 150, 136, 0.08);
+
+  /* Site-wide background and text */
+  --ifm-background-color: #e0f2f1; /* Light teal grey */
+
+  /* Navbar and footer colors */
+  --ifm-navbar-background-color: #004d40; /* Dark teal */
+  --ifm-navbar-link-color: #fff;
+  --ifm-navbar-link-hover-color: #80cbc4;
+  --ifm-footer-background-color: #004d40; /* Dark teal */
+  --ifm-footer-color: #fff;
+}
+
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #1de9b6;
+  --ifm-color-primary-dark: #00bfae;
+  --ifm-color-primary-darker: #00bfae;
+  --ifm-color-primary-darkest: #00897b;
+  --ifm-color-primary-light: #64ffda;
+  --ifm-color-primary-lighter: #a7ffeb;
+  --ifm-color-primary-lightest: #e0f7fa;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 150, 136, 0.18);
+
+  /* Even darker background for dark mode */
+  --ifm-background-color: #06201a; /* Deeper jade */
+}
+
+/* Apply background and text color globally */
+body {
+  background: var(--ifm-background-color);
+  /* Remove hardcoded color so Docusaurus can handle text color for dark/light mode */
+}
+
+/* Navbar styles */
+.navbar {
+  background: var(--ifm-navbar-background-color) !important;
+}
+.navbar__brand, .navbar__link {
+  color: var(--ifm-navbar-link-color) !important;
+}
+.navbar__link:hover {
+  color: var(--ifm-navbar-link-hover-color) !important;
+}
+
+/* Footer styles */
+.footer {
+  background: var(--ifm-footer-background-color) !important;
+  color: var(--ifm-footer-color) !important;
+}
+.footer__link-item {
+  color: var(--ifm-footer-color) !important;
 }
