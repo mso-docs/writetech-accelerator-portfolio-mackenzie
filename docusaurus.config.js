@@ -75,6 +75,28 @@ const config = {
     ],
   ],
 
+  // plugins: [
+  //   [
+  //     'docusaurus-plugin-openapi-docs',
+  //     {
+  //       id: "pokeapi", // plugin id
+  //       docsPluginId: "classic", // configured for preset-classic
+  //       config: {
+  //         pokeapi: {
+  //           specPath: "docs/api-documentation-openapi/reference/pokeapi-berries.yaml", // path to OpenAPI spec
+  //           outputDir: "docs/api-documentation-openapi", // output directory for generated files
+  //           sidebarOptions: {
+  //             groupPathsBy: "tag",
+  //             categoryLinkSource: "tag"
+  //           },
+  //         }
+  //       }
+  //     },
+  //   ]
+  // ],
+
+  // themes: ["docusaurus-theme-openapi-docs"], // OpenAPI theme
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -92,6 +114,11 @@ const config = {
             sidebarId: 'tutorialSidebar',
             position: 'left',
             label: 'Tutorial',
+          },
+          {
+            to: '/docs/api-documentation-openapi',
+            label: 'API Docs',
+            position: 'left',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {

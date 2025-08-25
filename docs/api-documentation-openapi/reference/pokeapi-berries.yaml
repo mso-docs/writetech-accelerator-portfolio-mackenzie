@@ -1,0 +1,284 @@
+openapi: 3.0.3
+info:
+  title: PokeAPI - Berries (Subset)
+  version: "1.0.0"
+  description: |
+    OpenAPI specification for three berry-related endpoints derived from the provided docs content:
+    - **/berry/{id_or_name}**
+    - **/berry-firmness/{id_or_name}**
+    - **/berry-flavor/{id_or_name}**
+servers:
+  - url: https://pokeapi.co/api/v2
+paths:
+  /berry/{id_or_name}:
+    get:
+      tags: [Berries]
+      summary: Get a berry by id or name
+      operationId: getBerry
+      parameters:
+        - name: id_or_name
+          in: path
+          required: true
+          description: The berry identifier or name.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Berry payload
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Berry'
+              examples:
+                sirrusBerry:
+                  summary: Example berry (sirrus)
+                  value:
+                    id: 10
+                    name: sirrus
+                    growth_time: 8
+                    max_harvest: 5
+                    natural_gift_power: 60
+                    size: 95
+                    smoothness: 20
+                    soil_dryness: 7
+                    firmness: 20
+                    flavors:
+                      - flavor: { name: spicy, url: "https://pokeapi.co/api/v2/berry-flavor/1/" }
+                        potency: 0
+                      - flavor: { name: dry, url: "https://pokeapi.co/api/v2/berry-flavor/2/" }
+                        potency: 10
+                      - flavor: { name: sweet, url: "https://pokeapi.co/api/v2/berry-flavor/3/" }
+                        potency: 10
+                      - flavor: { name: bitter, url: "https://pokeapi.co/api/v2/berry-flavor/4/" }
+                        potency: 10
+                      - flavor: { name: sour, url: "https://pokeapi.co/api/v2/berry-flavor/5/" }
+                        potency: 10
+                    item:
+                      name: sirrus-berry
+                      url: "https://pokeapi.co/api/v2/item/135/"
+                    natural_gift_type:
+                      name: psychic
+                      url: "https://pokeapi.co/api/v2/type/14/"
+        '404':
+          description: Berry not found
+  /berry-firmness/{id_or_name}:
+    get:
+      tags: [Berries]
+      summary: Get berry firmness by id or name
+      operationId: getBerryFirmness
+      parameters:
+        - name: id_or_name
+          in: path
+          required: true
+          description: The berry firmness identifier or name.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Berry Firmness payload
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BerryFirmness'
+              examples:
+                hard:
+                  summary: Hard firmness example
+                  value:
+                    id: 3
+                    name: hard
+                    berries:
+                      - name: enigma
+                        url: "https://pokeapi.co/api/v2/berry/60/"
+                    names:
+                      - language: { name: ja-Hrkt, url: "https://pokeapi.co/api/v2/language/1/" }
+                        name: "かたい"
+        '404':
+          description: Firmness not found
+  /berry-flavor/{id_or_name}:
+    get:
+      tags: [Berries]
+      summary: Get berry flavor by id or name
+      operationId: getBerryFlavor
+      parameters:
+        - name: id_or_name
+          in: path
+          required: true
+          description: The berry flavor identifier or name.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Berry Flavor payload
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BerryFlavor'
+              examples:
+                spicy:
+                  summary: Spicy flavor example
+                  value:
+                    id: 1
+                    name: spicy
+                    berries:
+                      - berry: { name: rowap, url: "https://pokeapi.co/api/v2/berry/64/" }
+                        potency: 10
+                      - berry: { name: enigma, url: "https://pokeapi.co/api/v2/berry/60/" }
+                        potency: 40
+                    contest_type:
+                      name: cool
+                      url: "https://pokeapi.co/api/v2/contest-type/1/"
+                    names:
+                      - language: { name: en, url: "https://pokeapi.co/api/v2/language/9/" }
+                        name: Spicy
+        '404':
+          description: Flavor not found
+
+components:
+  schemas:
+    NamedAPIResource:
+      type: object
+      required: [name, url]
+      properties:
+        name:
+          type: string
+          description: Resource name.
+        url:
+          type: string
+          format: uri
+          description: Resource URL.
+    Name:
+      type: object
+      required: [language, name]
+      properties:
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+        name:
+          type: string
+          description: Translated name.
+    BerryFlavorMap:
+      type: object
+      required: [flavor, potency]
+      properties:
+        flavor:
+          $ref: '#/components/schemas/NamedAPIResource'
+        potency:
+          type: integer
+          description: Potency of the berry flavor (higher = stronger).
+          example: 10
+    FlavorBerryMap:
+      type: object
+      required: [berry, potency]
+      properties:
+        berry:
+          $ref: '#/components/schemas/NamedAPIResource'
+        potency:
+          type: integer
+          description: Potency of the flavor for this berry (higher = stronger).
+          example: 40
+    Berry:
+      type: object
+      required:
+        - id
+        - name
+        - growth_time
+        - max_harvest
+        - natural_gift_power
+        - size
+        - smoothness
+        - soil_dryness
+        - firmness
+        - flavors
+        - item
+        - natural_gift_type
+      properties:
+        id:
+          type: integer
+          description: The identifier for this resource.
+          example: 10
+        name:
+          type: string
+          description: The name of this resource.
+          example: sirrus
+        growth_time:
+          type: integer
+          description: Amount of time (hours) for the berry tree to grow one stage. (4 stages total)
+          example: 8
+        max_harvest:
+          type: integer
+          description: Maximum number of berries on one tree.
+          example: 5
+        natural_gift_power:
+          type: integer
+          description: Power of the move "Natural Gift" when used with this berry.
+          example: 60
+        size:
+          type: integer
+          description: Size of the berry (mm).
+          example: 95
+        smoothness:
+          type: integer
+          description: Smoothness used when making Pokéblocks or Poffins.
+          example: 20
+        soil_dryness:
+          type: integer
+          description: Drying speed of the soil (higher = faster).
+          example: 7
+        firmness:
+          type: integer
+          description: Firmness of the berry (per provided docs).
+          example: 20
+        flavors:
+          type: array
+          description: Each flavor the berry can have, with potency.
+          items:
+            $ref: '#/components/schemas/BerryFlavorMap'
+        item:
+          $ref: '#/components/schemas/NamedAPIResource'
+        natural_gift_type:
+          $ref: '#/components/schemas/NamedAPIResource'
+    BerryFirmness:
+      type: object
+      required: [id, name, berries, names]
+      properties:
+        id:
+          type: integer
+          description: Identifier for this firmness resource.
+          example: 3
+        name:
+          type: string
+          description: Firmness name.
+          example: hard
+        berries:
+          type: array
+          description: All berries with this firmness (NamedAPIResource list)."
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          description: Localized names for this firmness.
+          items:
+            $ref: '#/components/schemas/Name'
+    BerryFlavor:
+      type: object
+      required: [id, name, berries, contest_type, names]
+      properties:
+        id:
+          type: integer
+          description: Identifier for this flavor resource.
+          example: 1
+        name:
+          type: string
+          description: Flavor name.
+          example: spicy
+        berries:
+          type: array
+          description: Berries having this flavor with potency values.
+          items:
+            $ref: '#/components/schemas/FlavorBerryMap'
+        contest_type:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          description: Localized names for this flavor.
+          items:
+            $ref: '#/components/schemas/Name'

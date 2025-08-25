@@ -1,6 +1,6 @@
 # WriteTechHub Accelerator Program Portfolio
 
-![Mackenzie-WTH-Logo](/---assets/wth-mackenzie.techdocs.png)
+![Mackenzie-WTH-Logo](/assets/mack.tech.png)
 
 ## Documentation & DevOps Portfolio Projects
 My name is Mackenzie! I am a Senior Technical Writer, specializing in software and API documentation. I love to create clear, concise documentation for developers.
