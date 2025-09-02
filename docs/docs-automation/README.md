@@ -837,7 +837,8 @@ Prerendering docs
 
 ---
 
-### Local Quick Start (optional)
+### Local Quick Start
+Here is how I ran the linters and automated workflows: 
 ```bash
 # Vale (from repo root)
 vale .
