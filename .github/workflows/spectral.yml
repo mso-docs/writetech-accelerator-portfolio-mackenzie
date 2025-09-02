@@ -1,5 +1,10 @@
 name: OpenAPI Lint (Spectral) & Build Docs (Redocly)
 
+# Set explicit permissions for the workflow
+permissions:
+  contents: read
+  actions: read
+
 on:
   push:
     branches: [ main, develop ]
@@ -91,10 +96,12 @@ jobs:
           path: dist/api-docs/
           retention-days: 30
 
-      - name: Deploy to GitHub Pages (optional)
-        if: github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/api-docs
-          destination_dir: api-docs
+      # Optional: Deploy to GitHub Pages (requires Pages to be enabled)
+      # Uncomment and configure if you want to deploy to GitHub Pages
+      # - name: Deploy to GitHub Pages
+      #   if: github.ref == 'refs/heads/main' && github.repository_owner == 'mso-docs'
+      #   uses: peaceiris/actions-gh-pages@v4
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./dist/api-docs
+      #     destination_dir: api-docs
