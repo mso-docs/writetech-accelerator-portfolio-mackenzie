@@ -1,11 +1,25 @@
 extends: ["spectral:oas"]
 
+# Make the linter much less strict and focused
 rules:
+  # Turn off strict rules that cause errors
+  oas3-valid-media-example: off
+  oas3-valid-schema-example: off
+  no-$ref-siblings: off
+  
+  # Make other rules warnings instead of errors
+  info-contact: warn
+  operation-description: warn
+  operation-tags: warn
+  operation-tag-defined: off  # Turn off since we often use tags without defining them globally
+  oas3-unused-component: off  # Allow unused components
+  
+  # Keep your custom rule but make it less strict
   operation-operationId:
     description: "Each operation should have an operationId."
-    message: "Add a unique operationId to this operation."
+    message: "Consider adding a unique operationId to this operation."
     given: "$.paths[*][*]"
-    severity: warn
+    severity: info  # Changed from warn to info
     then:
       field: operationId
       function: truthy

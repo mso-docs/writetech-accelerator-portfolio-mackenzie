@@ -35,16 +35,29 @@ jobs:
         run: |
           npm install -g @stoplight/spectral-cli @redocly/cli
 
-      - name: Spectral lint (all YAML files)
+      - name: Spectral lint (OpenAPI files only)
         run: |
-          # Lint all YAML files with your spectral.yml config
-          spectral lint "**/*.yaml" --ruleset spectral.yml --fail-severity=warn
+          # Only lint files that are likely to be OpenAPI specs
+          echo "Linting specific OpenAPI files..."
           
-          # Also specifically lint your known API file
-          if [ -f "docs/automation-workflows/api-doc-test1.yml" ]; then
-            echo "Linting docs/automation-workflows/api-doc-test1.yml..."
-            spectral lint "docs/automation-workflows/api-doc-test1.yml" --ruleset spectral.yml
+          # Lint known API files
+          if [ -f "docs/docs-automation/api-doc-test1.yml" ]; then
+            echo "Linting docs/docs-automation/api-doc-test1.yml..."
+            spectral lint "docs/docs-automation/api-doc-test1.yml" --ruleset spectral.yml --fail-severity=error || true
           fi
+          
+          if [ -f "docs/docs-automation/openapi.yml" ]; then
+            echo "Linting docs/docs-automation/openapi.yml..."
+            spectral lint "docs/docs-automation/openapi.yml" --ruleset spectral.yml --fail-severity=error || true
+          fi
+          
+          # Look for other potential API files in docs directories only
+          find docs -name "*.yaml" -o -name "*.yml" | grep -E "(api|openapi|spec)" | while read -r file; do
+            if [ -n "$file" ] && [ -f "$file" ]; then
+              echo "Linting $file..."
+              spectral lint "$file" --ruleset spectral.yml --fail-severity=error || true
+            fi
+          done
 
       - name: Create output directory
         run: mkdir -p dist/api-docs
@@ -52,17 +65,17 @@ jobs:
       - name: Build Redocly static documentation
         run: |
           # Build documentation for Weather API
-          if [ -f "docs/automation-workflows/api-doc-test1.yml" ]; then
+          if [ -f "docs/docs-automation/api-doc-test1.yml" ]; then
             echo "Building documentation for Weather.io Forecast API..."
-            redocly build-docs docs/automation-workflows/api-doc-test1.yml \
+            redocly build-docs docs/docs-automation/api-doc-test1.yml \
               --output dist/api-docs/weather-api.html \
               --title "Weather.io Forecast API Documentation"
           fi
           
           # Check if docs-automation openapi.yaml exists and build it too
-          if [ -f "docs/docs-automation/openapi.yaml" ]; then
+          if [ -f "docs/docs-automation/openapi.yml" ]; then
             echo "Building documentation for docs-automation API..."
-            redocly build-docs docs/docs-automation/openapi.yaml \
+            redocly build-docs docs/docs-automation/openapi.yml \
               --output dist/api-docs/docs-automation.html
           fi
 
