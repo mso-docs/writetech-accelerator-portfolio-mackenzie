@@ -1,0 +1,5 @@
+extends: spelling
+message: "Did you really mean '%s'?"
+level: error
+# This disables the spell checker for terms in accept.txt
+ignore: accept.txt

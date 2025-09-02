@@ -1,0 +1,87 @@
+name: OpenAPI Lint (Spectral) & Build Docs (Redocly)
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - '**/*.yaml'
+      - '**/*.yml'
+      - 'spectral.yml'
+      - '.github/workflows/spectral.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '**/*.yaml'
+      - '**/*.yml'
+      - 'spectral.yml'
+  workflow_dispatch: {}
+
+jobs:
+  spectral-redocly:
+    name: Lint OpenAPI & Build Documentation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Spectral & Redocly CLI
+        run: |
+          npm install -g @stoplight/spectral-cli @redocly/cli
+
+      - name: Spectral lint (all YAML files)
+        run: |
+          # Lint all YAML files with your spectral.yml config
+          spectral lint "**/*.yaml" --ruleset spectral.yml --fail-severity=warn
+          
+          # Also specifically lint your known API file
+          if [ -f "docs/automation-workflows/api-doc-test1.yml" ]; then
+            echo "Linting docs/automation-workflows/api-doc-test1.yml..."
+            spectral lint "docs/automation-workflows/api-doc-test1.yml" --ruleset spectral.yml
+          fi
+
+      - name: Create output directory
+        run: mkdir -p dist/api-docs
+
+      - name: Build Redocly static documentation
+        run: |
+          # Build documentation for Weather API
+          if [ -f "docs/automation-workflows/api-doc-test1.yml" ]; then
+            echo "Building documentation for Weather.io Forecast API..."
+            redocly build-docs docs/automation-workflows/api-doc-test1.yml \
+              --output dist/api-docs/weather-api.html \
+              --title "Weather.io Forecast API Documentation"
+          fi
+          
+          # Check if docs-automation openapi.yaml exists and build it too
+          if [ -f "docs/docs-automation/openapi.yaml" ]; then
+            echo "Building documentation for docs-automation API..."
+            redocly build-docs docs/docs-automation/openapi.yaml \
+              --output dist/api-docs/docs-automation.html
+          fi
+
+      - name: List generated files
+        run: |
+          echo "Generated API documentation files:"
+          ls -la dist/api-docs/ || echo "No files generated"
+
+      - name: Upload API documentation artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: redocly-static-site
+          path: dist/api-docs/
+          retention-days: 30
+
+      - name: Deploy to GitHub Pages (optional)
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/api-docs
+          destination_dir: api-docs

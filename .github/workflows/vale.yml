@@ -1,0 +1,43 @@
+name: Lint Markdown (Vale) & Link Check
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '**.md'
+      - '.vale.ini'
+      - '.github/workflows/vale.yml'
+  workflow_dispatch: {}
+
+jobs:
+  vale-and-links:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # VALE
+      - name: Run Vale on Markdown
+        uses: errata-ai/vale-action@v2
+        with:
+          files: |
+            **/*.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # BROKEN LINK CHECK (nice extra for the assignment)
+      - name: Run lychee link checker
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --verbose --no-progress --accept 200,206,429 "docs/**/*.md" "*.md"
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload lychee report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lychee-report
+          path: lychee/out.md

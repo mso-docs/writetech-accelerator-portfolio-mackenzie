@@ -1,0 +1,400 @@
+openapi: 3.0.3
+info:
+  title: Weather.io Forecast API
+  description: |-
+    An API to retrieve current weather and 7-day forecast data by city. You can also use this API to check if a city is included in our forecast database. Additionally, you can contribute CoCoRaHS and NWS data to help improve the accuracy of our forecasts.
+    
+    Note:
+    - All endpoints require an API key provided by the 'X-API-Key' header.
+
+    Learn more about Weather.io by checking out our [documentation](https://weather.io/docs).
+    
+    If you have any questions or need support, check out the links below:
+  termsOfService: https://weather.io/terms
+  contact:
+    name: Weather.io Support
+    url: https://weather.io/support
+    email: mackenzie.techdocs@gmail.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+
+  version: 1.0.1
+servers:
+  - url: https://weather.io/forecast
+    description: Production Server (uses live weather data).
+
+paths:
+  /forecast:
+    get:
+      tags:
+        - Get Forecast
+      summary: Get current 1-7 day forecast by city or ZIP Code. 
+      description: Returns the current weather forecast for a specified city. Users can input city name or ZIP Code to return a forecast. Forecast includes up to 7 days of weather information.
+      parameters:
+        - in: query
+          name: city
+          required: false
+          schema:
+            type: string
+          description: Name of the city (e.g., "Albuquerque"). If a ZIP Code is provided, the city will be derived from the ZIP Code.
+          example: Albuquerque
+        - in: query
+          name: zipCode
+          required: false
+          schema:
+            type: string
+          description: Optional ZIP Code for the city. If provided, it will be used to derive the city name.
+          example: 87101
+        - in: query
+          name: unit
+          required: false
+          schema:
+            type: string
+            enum: [Metric, Imperial]
+            default: Metric
+          description: The unit of temperature measurement. Can be either 'Metric' or 'Imperial'. Default is 'Metric'.
+        - in: query
+          name: forecast length
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 7
+            default: 1
+          description: The number of days for the forecast. Default is 1 day, maximum is 7 days.
+      responses:
+        '200':
+          description: Successful response with weather forecast data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeatherReport'
+            
+        '400':
+          description: Bad request (e.g., missing or invalid city or ZIP Code).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Invalid city name. Please check your input and try again.
+        '401':
+          description: Unauthorized (e.g., missing or invalid API key).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Unauthorized. Please provide a valid API key.
+        '403':
+          description: Forbidden (e.g., API key does not have access to the requested resource).
+          content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    error:
+                      type: string
+                      example: Forbidden. You do not have permission to access this resource.
+        '404':
+          description: City not found (e.g., invalid city name or ZIP Code).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: City not found. Please check the city name or ZIP Code and try again.
+        '500':
+          description: Internal server error (e.g., server issues or unexpected errors).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Internal server error. Please try again later.
+        '503':
+          description: Service unavailable (e.g., API service is temporarily down).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Service unavailable. Please try again later.
+      security:
+        - ApiKeyAuth: []
+    put:
+      tags:
+        - Update Forecast
+      summary: Contribute CoCoRaHS and NWS data to improve forecast accuracy.
+      description: Allows users to contribute CoCoRaHS and NWS data to help improve the accuracy of our forecasts. This endpoint requires an API key for authentication.
+      parameters:
+        - in: header
+          name: X-API-Key
+          required: true
+          schema:
+            type: string
+          description: Your API key for authentication. This key is required to access this endpoint.
+        - in : query
+          name: city
+          required: true
+          schema:
+            type: string
+          description: Name of the city for which the data is being contributed.
+          example: Albuquerque
+        - in: query
+          name: zipCode
+          required: false
+          schema:
+            type: string
+          description: Optional ZIP Code for the city. If provided, it will be used to derive the city name.
+          example: 87101
+        - in: query
+          name: dataCategory
+          required: true
+          schema:
+            type: string
+          description: Category of data being contributed (e.g., precipitation, temperature).
+          example: Precipitation
+        - in: query
+          name: precipitationType
+          required: false
+          schema:
+            type: string
+            enum: [Rain, Snow, Hail, Sleet, Slurry, Ice, Mixed, Other]
+            default: Rain
+          description: Type of precipitation being reported. Can be one of the following- 'Rain, Snow, Hail, Sleet, Slurry, Ice, Mixed, or Other.' Default is 'Rain'. If 'Other', then define the precipiationType in additionalInfo
+          example: Rain
+        - in: query
+          name: dataType
+          required: true
+          schema:
+            type: string
+            enum: [CoCoRaHS, NWS]
+          description: Type of data being contributed (e.g., CoCoRaHS or NWS).
+        - in: query
+          name: dataValue
+          required: true
+          schema:
+            type: string
+          description: The actual data value being contributed (e.g., precipitation amount).
+          example: 0.5 inches
+        - in: query
+          name: unit
+          required: false
+          schema:
+            type: string
+            enum: [Metric, Imperial]
+            default: Metric
+          description: The unit of measurement for the data value. Can be either 'Metric' or 'Imperial'. Default is 'Metric'.
+        - in : query
+          name: forecastLength
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 7
+            default: 1
+          description: The number of days for which the data is being contributed. Default is 1 day, maximum is 7 days.
+        - in: query
+          name: additionalInfo
+          required: false
+          schema:
+            type: string
+          description: Optional additional information about the data being contributed (e.g., notes or comments).
+          example: 'Data collected at 8 AM local time.'
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                city:
+                  type: string
+                  description: Name of the city for which the data is being contributed.
+                  example: 'Albuquerque'
+                zipCode:
+                  type: string
+                  description: Optional ZIP Code for the city.
+                  example: '87101'
+                dataType:
+                  type: string
+                  enum: [CoCoRaHS, NWS]
+                  description: Type of data being contributed (e.g., CoCoRaHS or NWS).
+                dataValue:
+                  type: string
+                  description: The actual data value being contributed (e.g., precipitation amount).
+                  example: '0.5 inches'
+      responses:
+        '200':
+          description: Successful contribution of data.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Data contribution successful. Thank you for helping improve our forecasts!
+        '400':
+          description: Bad request (e.g., missing or invalid data).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Invalid data provided. Please check your input and try again.
+        '401':
+          description: Unauthorized (e.g., missing or invalid API key).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Unauthorized. Please provide a valid API key.
+        '403':
+          description: Forbidden (e.g., API key does not have access to this endpoint).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Forbidden. You do not have permission to access this resource.
+        '500':
+          description: Internal server error (e.g., server issues or unexpected errors).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example:
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: 'X-API-Key'
+
+  schemas:
+    WeatherResponse:
+      type: object
+      properties:
+        city:
+          description: If a ZIP Code is provided, the city will be derived from the ZIP Code.
+          type: string
+          example: 'Las Cruces'
+        zipCode:
+          description: Optional ZIP Code for the city. If provided, it will be used to derive the city name.
+          type: string
+          example: '88001'
+        temperature:
+          type: number
+          format: float
+          example: 23.5
+        unit:
+          description: The unit of temperature measurement. Can be either 'Metric' or 'Imperial'.
+          type: string
+          example: 'Metric'
+        description:
+          description: A brief description of the current weather conditions.
+          type: string
+          example: 'Partly cloudy'
+
+    ForecastDay:
+      type: object
+      properties:
+        date:
+          description: The date for the forecast day in ISO 8601 format.
+          type: string
+          format: date
+          example: '2023-10-01'
+        highTemperature:
+          description: The high temperature for the day in the specified unit.
+          type: number
+          format: float
+          example: 28.0
+        lowTemperature:
+          description: The low temperature for the day in the specified unit.
+          type: number
+          format: float
+          example: 15.0
+        description:
+          description: A brief description of the weather conditions for the day.
+          type: string
+          example: 'Sunny with a chance of rain'
+    
+    WeatherReport:
+      type: object
+      properties:
+        ForecastDay:
+          description: A list of forecasted weather conditions for the next 7 days.
+          type: array
+          items:
+            $ref: '#/components/schemas/ForecastDay'
+        WeatherResponse:
+          description: The current weather conditions for the city.
+          type: object
+          $ref: '#/components/schemas/WeatherResponse'
+    
+    ForecastResponse:
+      type: object
+      properties:
+        city:
+          description: The name of the city for which the forecast is provided.
+          type: string
+          example: 'Alamogordo'
+        zipCode:
+          description: The ZIP Code for the city, if provided.
+          type: string
+          example: '88310'
+        unit:
+          description: The unit of temperature measurement used in the forecast.
+          type: string
+          example: 'Metric'
+        currentWeather:
+          description: The current weather conditions for the city.
+          type: object
+          $ref: '#/components/schemas/WeatherResponse'
+        forecast:
+          description: A list of forecasted weather conditions for the next 7 days.
+          type: array
+          items:
+            $ref: '#/components/schemas/ForecastDay'
+
+    ErrorResponses:
+      type: array
+      items:
+        type: string
+      properties:
+        '400':
+          type: string
+          description: A description of the error message returned by the API. These messages will let users know what information needs to be provided.
+          example: 'Invalid city name. Please check your input and try again.'
+        '401':
+          type: string
+          description: A description of the error message returned by the API when the user is not authorized.
+          example: 'Unauthorized. Please provide a valid API key.'
+
+

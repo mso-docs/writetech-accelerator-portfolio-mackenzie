@@ -1,0 +1,24 @@
+openapi: 3.0.3
+info:
+  title: Docs Automation Sample API
+  version: 1.0.0
+  description: Minimal sample API used to validate Spectral and build Redocly docs.
+servers:
+  - url: https://api.example.com/v1
+paths:
+  /health:
+    get:
+      operationId: getHealth
+      summary: Health check
+      description: Returns service health.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok

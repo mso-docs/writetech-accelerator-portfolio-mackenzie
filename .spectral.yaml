@@ -1,0 +1,32 @@
+# Spectral OpenAPI Linting Configuration
+extends: ["spectral:oas"]
+
+rules:
+  # Built-in OpenAPI rules - set severity levels
+  info-description: error
+  operation-description: error
+  operation-tags: error
+  operation-2xx-response: error
+  
+  # Custom rules for better API documentation
+  contact-properties:
+    description: Contact object should have "name", "url" and "email"
+    message: "Contact is missing {{property}}"
+    given: $.info.contact
+    severity: warn
+    then:
+      - field: name
+        function: truthy
+      - field: url
+        function: truthy
+      - field: email
+        function: truthy
+        
+  license-url:
+    description: License should include a URL
+    message: "License should include a URL"
+    given: $.info.license
+    severity: warn
+    then:
+      field: url
+      function: truthy
