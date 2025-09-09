@@ -258,7 +258,7 @@ Evaluate Llama 4 on your own stack and consider chunking and indexing for better
 - [ ] Alerts on spikes in unsafe categories, refusal loops, and anomaly patterns.
 - [ ] Rotation/retention policy documented.
 
-### 12) Deployment Hygiene
+### Deployment Hygiene
 
 - [ ] **Version Pins:** Model build, prompt templates, **Llama Guard/Prompt Guard** configs, routing logic.
 - [ ] Rollback plan; shadow/canary before full rollout.
