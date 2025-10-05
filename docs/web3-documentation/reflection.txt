@@ -1,0 +1,25 @@
+WriteTech Accelerator — Web3 Documentation Final Project  
+Reflection by Mackenzie O’Brien  
+October 2025
+
+This final project gave me a holistic understanding of the communication layers within Web3 documentation.  
+By completing all three options (A–C), I experienced how different audiences shape tone, structure, and technical depth.
+
+Option A (Alchemy Node API) challenged me to think like a developer.  
+I learned how to present complex JSON-RPC calls with clarity, reproducible examples, and minimal ambiguity.  
+Breaking down authentication, endpoints, and error handling in a walkthrough format taught me how small details—such as formatting consistency and real command-line samples—build developer trust.
+
+Option B (MetaMask User Guide) reminded me of the importance of accessibility and empathy in technical writing.  
+I focused on guiding new users through onboarding, security, and decentralized concepts without jargon.  
+This exercise reinforced my ability to write documentation that bridges the gap between complex blockchain systems and non-technical audiences.
+
+Option C (Luminia Verse White Paper) allowed me to shift from instructional to visionary writing.  
+It was an opportunity to define a protocol’s mission, technology, and tokenomics at a strategic level.  
+I learned how to balance technical precision with narrative flow—translating an abstract idea into a credible, structured proposal for investors and developers alike.
+
+Together, these three deliverables demonstrate full-spectrum documentation capability:
+- Technical API reference (developer documentation)
+- User onboarding and support (end-user documentation)
+- Conceptual and strategic communication (white paper / product vision)
+
+This project solidified my understanding that great documentation is not just about explaining technology—it’s about connecting people to technology in ways that inspire confidence, usability, and innovation.
