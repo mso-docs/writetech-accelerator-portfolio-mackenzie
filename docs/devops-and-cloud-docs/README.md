@@ -134,4 +134,4 @@ This project helped me:
 ---
 
 📎 **Next Project:**  
-Explore the [API Documentation Rebuild](../../api-documentation/) and [Web3 Final Project](../../web3-documentation/) modules in the WriteTech Accelerator Portfolio.
+Explore the [API Documentation Rebuild](../api-documentation-openapi/) and [Web3 Final Project](../web3-documentation/) modules in the WriteTech Accelerator Portfolio.
