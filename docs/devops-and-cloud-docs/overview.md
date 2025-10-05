@@ -22,21 +22,25 @@ In this project, we focus on **Continuous Deployment** for static sites — a li
 
 GitHub Actions is a native automation platform built into GitHub repositories. It lets you define workflows in simple YAML files that run in the cloud whenever events (like `push` or `pull_request`) occur.
 
-**Key Benefits:**
-- 🔄 **Native Integration** — No third-party CI tool needed.
-- 💸 **Free for public repos** — Generous build minutes for personal projects.
-- 🔒 **Secure Secrets Management** — Tokens and keys are encrypted and stored in GitHub Secrets.
-- 🧩 **Reusable Actions** — Thousands of prebuilt actions available on the [GitHub Marketplace](https://github.com/marketplace?type=actions).
+### Key Benefits to GitHub Actions
+
+You can see the benefits to using GitHub Actions in the list below:
+
+- **Native Integration:** No third-party CI tool needed.
+- **Free for public repos:** Generous build minutes for personal projects.
+- **Secure Secrets Management:** Tokens and keys are encrypted and stored in GitHub Secrets.
+- **Reusable Actions:** Thousands of prebuilt actions available on the [GitHub Marketplace](https://github.com/marketplace?type=actions).
 
 ---
 
 ## What You’ll Build
 
 A simple, automated pipeline that:
-1. Checks out your repository  
-2. Installs dependencies  
-3. Builds your static site  
-4. Deploys automatically to Vercel or Netlify  
+
+1. Checks out your repository.
+2. Installs dependencies.
+3. Builds your static site.  
+4. Deploys automatically to Vercel or Netlify.  
 
 > **Goal:** Every commit to `main` triggers a workflow → builds your site → deploys it live in under two minutes.
 
@@ -44,11 +48,13 @@ A simple, automated pipeline that:
 
 ## Example Use Case
 
-You’ve built a documentation site with Docusaurus and want every update to publish instantly to your live domain on Vercel.  
+You’ve built a documentation site with Docusaurus and want every update to publish instantly to your live domain on Vercel.
+
 You’ll configure GitHub Actions to:
-- Build the Docusaurus site automatically using `npm run build`
-- Deploy it to Vercel using your secure token
-- Report the status back to the GitHub Actions dashboard
+
+- Build the Docusaurus site automatically using `npm run build`.
+- Deploy it to Vercel using your secure token.
+- Report the status back to the GitHub Actions dashboard.
 
 This is a foundational DevOps workflow — the same process used in production-grade pipelines.
 
@@ -57,6 +63,7 @@ This is a foundational DevOps workflow — the same process used in production-g
 ## Prerequisites
 
 Before beginning, make sure you have:
+
 - ✅ A GitHub account and a repository with your static site code
 - ✅ Basic familiarity with the command line
 - ✅ Node.js and npm installed locally
@@ -68,6 +75,7 @@ Before beginning, make sure you have:
 ## Project Goals
 
 By following this documentation, you will:
+
 - Understand how CI/CD works conceptually and practically
 - Learn how to write and debug GitHub Actions YAML files
 - Gain hands-on experience with environment variables and secrets
@@ -76,4 +84,6 @@ By following this documentation, you will:
 
 ---
 
-Next: [Setup Instructions →](setup.md)
+## Next Steps
+
+Check out this article next: [Setup Instructions →](setup.md)

@@ -1,12 +1,15 @@
-# DevOps & Cloud Documentation Project  
-**Topic:** CI/CD with GitHub Actions for Static Website Deployment  
-**Author:** Mackenzie O’Brien (Mackenzie.TechDocs)  
-**Course Module:** WriteTech Accelerator — DevOps & Cloud Documentation  
-**Date:** September 2025  
+# DevOps & Cloud Documentation Project
+
+## Key Information
+
+- **Topic:** CI/CD with GitHub Actions for Static Website Deployment  
+- **Author:** Mackenzie O’Brien (Mackenzie.TechDocs)  
+- **Course Module:** WriteTech Accelerator — DevOps & Cloud Documentation  
+- **Date:** September 2025  
 
 ---
 
-## 📖 Overview
+## Overview
 
 This project simulates a real-world documentation engineering task in a **DevOps and Cloud-native environment**.  
 It provides a full end-to-end guide for automating static website deployment using **GitHub Actions**, **Vercel**, and **Netlify**.
@@ -15,9 +18,11 @@ The goal is to help new developers and documentation writers understand **how to
 
 ---
 
-## 🧭 Project Structure
+## Project Structure
 
-```
+This project has the following structure:
+
+```json
 /docs/devops-cloud-documentation/
 ├── overview.md
 ├── setup.md
@@ -28,14 +33,11 @@ The goal is to help new developers and documentation writers understand **how to
 └── README.md
 ```
 
-All visual assets and diagrams (e.g., workflow overviews, dashboard screenshots) are stored under:
-```
-/docs/devops-cloud-documentation/media/
-```
-
 ---
 
-## 📂 Documentation Sections
+## Documentation Sections
+
+You can learn more about the documents included in the project structure below:
 
 | File | Description |
 |------|--------------|
@@ -48,7 +50,9 @@ All visual assets and diagrams (e.g., workflow overviews, dashboard screenshots)
 
 ---
 
-## 🧰 Technologies and Tools Used
+## Technologies and Tools Used
+
+During the course of this project, the following tools were used:
 
 | Category | Tools |
 |-----------|--------|
@@ -62,7 +66,7 @@ All visual assets and diagrams (e.g., workflow overviews, dashboard screenshots)
 
 ---
 
-## ⚙️ Workflow Summary
+## Workflow Summary
 
 This documentation demonstrates a complete DevOps automation workflow:
 
@@ -73,6 +77,7 @@ This documentation demonstrates a complete DevOps automation workflow:
 5. **Error Handling:** Provides actionable fixes for CI/CD failures  
 
 Example snippet from the workflow:
+
 ```yaml
 name: Deploy Static Site
 on:
@@ -93,7 +98,7 @@ jobs:
 
 ---
 
-## 🧠 Learning Objectives
+## Learning Objectives
 
 - Understand **CI/CD pipelines** and workflow automation  
 - Learn **GitHub Actions** syntax and configuration  
@@ -103,9 +108,10 @@ jobs:
 
 ---
 
-## 🎓 Reflection Summary
+## Reflection Summary
 
 This project helped me:
+
 - Deepen my knowledge of DevOps and CI/CD concepts  
 - Practice real-world debugging and documentation clarity  
 - Build empathy for developer pain points through structured guidance  
@@ -115,7 +121,7 @@ This project helped me:
 
 ---
 
-## 🏗 Future Enhancements
+## Future Enhancements
 
 - Add **Spectral** or **Vale** checks for automated documentation linting  
 - Integrate **Slack notifications** for deployment results  
@@ -124,14 +130,17 @@ This project helped me:
 
 ---
 
-## 🪪 Credits
+## Credits
 
-**Author:** Mackenzie O’Brien — [mackenzie.techdocs](https://github.com/mackenzie-techdocs)  
-**Tools & Stack:** GitHub Actions · Node.js · Markdown · Vercel · Netlify  
-**Created for:** *WriteTech Accelerator – DevOps & Cloud Module (2025)*  
-**License:** MIT (Open for educational and portfolio use)
+The following credits are attributed to this project:
+
+- **Author:** Mackenzie O’Brien — [mackenzie.techdocs](https://github.com/mackenzie-techdocs)  
+- **Tools & Stack:** GitHub Actions · Node.js · Markdown · Vercel · Netlify  
+- **Created for:** *WriteTech Accelerator – DevOps & Cloud Module (2025)*  
+- **License:** MIT (Open for educational and portfolio use)
 
 ---
 
-📎 **Next Project:**  
-Explore the [API Documentation Rebuild](../api-documentation-openapi/) and [Web3 Final Project](../web3-documentation/) modules in the WriteTech Accelerator Portfolio.
+## Additional Projects
+
+Explore the [API Documentation Rebuild](../api-documentation-openapi/) and [Web3 Final Project](../web3-documentation/) modules in the WriteTech Accelerator Portfolio to see more of my work.
