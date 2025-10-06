@@ -2,7 +2,9 @@
 
 > **Overview:** Luminia Verse** is an open interoperability protocol that enables seamless asset and identity portability across Web3 gaming and metaverse platforms. Built on Ethereum and Layer 2 solutions, it provides the infrastructure for a truly connected multiverse where digital assets retain value and utility across virtual worlds.
 
-### Key Features
+## Key Features
+
+Here are some of the key features you can expect with Luminia Verse:
 
 - **Universal Avatar Standard (LVA-721)** - Portable identity NFTs with cross-world compatibility
 - **Asset Bridge Contracts** - Secure smart contracts for transferring assets between chains
@@ -11,11 +13,15 @@
 
 ### Benefits
 
+There are several benefits you can expect within Luminia Verse:
+
 - **For Players**: Maintain persistent identity and inventory across all compatible games
 - **For Developers**: Reduce integration costs with ready-made wallet and NFT infrastructure  
 - **For Creators**: Monetize assets across multiple platforms with automated royalty distribution
 
 ### Technical Stack
+
+Luminia Verse requires the following technical stack:
 
 - **Smart Contracts**: Ethereum mainnet with zk-rollup Layer 2 scaling
 - **APIs**: GraphQL and REST endpoints for efficient asset querying
@@ -38,6 +44,8 @@ Built atop the **Ethereum mainnet and Layer 2 sidechains**, Luminia Verse uses a
 
 Key objectives:
 
+Key objectives for Luminia Verse include:
+
 - **Universal Avatar Standard (LVA-721):** Portable identity NFTs with customizable traits and on-chain metadata.
 - **Asset Bridge Contracts:** Secure, audited smart contracts for transferring NFTs or in-game tokens between chains.
 - **Open Developer SDK:** Simple APIs for game engines (Unity, Unreal, Godot) to integrate asset verification and wallet login.
@@ -45,7 +53,9 @@ Key objectives:
 
 ---
 
-## 3. Technology Architecture
+## 3. Technical Architecture
+
+Luminia Verse has the following technical architecture:
 
 | Layer | Components | Description |
 |-------|-------------|-------------|
@@ -54,7 +64,9 @@ Key objectives:
 | **Front-End Integrations** | SDKs + JS libraries | Simplify wallet auth (MetaMask, WalletConnect), asset rendering, and transaction UX. |
 | **Consensus & Security** | Ethereum mainnet + zk-rollup Layer 2 | Mainnet anchors identity state; rollups batch micro-transactions to keep fees low. |
 
-**Workflow Example**
+### Workflow Example
+
+Here is an example of a Luminia Verse workflow:
 
 1. Player logs in via wallet → avatar NFT is verified through `LVARegistry`.
 2. World A reads attributes (skin ID, accessories).
@@ -65,6 +77,8 @@ Key objectives:
 
 ## 4. Token Model (LUMI)
 
+The LUMI token model is shown in the table below:
+
 | Parameter | Purpose |
 |------------|----------|
 | **Symbol** | LUMI |
@@ -73,7 +87,9 @@ Key objectives:
 | **Use Cases** | Staking for validator roles, paying cross-world transaction fees, DAO voting, creator royalty routing |
 | **Distribution** | 40 % ecosystem grants, 25 % community airdrop, 20 % dev fund, 10 % foundation, 5 % advisors |
 
-**Economic Incentives**
+### Economic Incentives
+
+Here are some economic incentives for the Luminia Verse project:
 
 - Validators earn LUMI for securing bridge events.
 - Developers stake LUMI to register new worlds or assets.
@@ -83,17 +99,25 @@ Key objectives:
 
 ## 5. Target Audience & Use Cases
 
-**For Players:**  
+Below, we've provided some target audiences and their respective use cases. You can find these in the sections below.
+
+### For Players
+
+Players have the following use cases:
 
 - Carry one avatar identity across all compatible games.  
 - Retain inventory and achievements independent of publishers.  
 
-**For Developers:**  
+### For Developers
+
+Developers have the following use cases:
 
 - Reduce onboarding friction via ready-made wallet + NFT infrastructure.  
 - Tap into an interoperable economy without reinventing token standards.
 
-**For Brands & Creators:**
+### For Brands & Creators
+
+Brands and creators have the following use cases:
 
 - Mint limited edition cross-world wearables, cosmetics, and digital collectibles.  
 - Earn royalties each time items move or resell across ecosystems.
@@ -101,6 +125,8 @@ Key objectives:
 ---
 
 ## 6. Roadmap (Year 1 – Year 3)
+
+Here is the three-year roadmap for the Luminia Verse project:
 
 | Phase | Milestones |
 |--------|-------------|
