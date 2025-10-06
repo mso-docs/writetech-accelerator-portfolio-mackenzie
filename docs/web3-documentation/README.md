@@ -69,7 +69,7 @@ A full-length **MetaMask user guide** that introduces new users to decentralized
 
 ### Highlights
 - Written in a **friendly, procedural tone** with clear safety tips  
-- Includes both **Mainnet and Sepolia testnet** workflows  
+- Includes both **mainnet and Sepolia testnet** workflows  
 - Emphasizes **non-custodial wallet awareness** and risk reduction  
 
 ---

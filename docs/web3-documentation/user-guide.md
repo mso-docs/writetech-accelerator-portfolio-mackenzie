@@ -1,10 +1,11 @@
 # MetaMask User Guide (Option B — Web3 Tool Onboarding & Common Tasks)
 
-> Scope: This hands-on guide helps new users install MetaMask, create or import a wallet safely, fund it, switch networks, send/receive assets, swap tokens, connect to dApps, and manage approvals. It also covers security best practices, troubleshooting, and a quick glossary. Written for non‑custodial wallet beginners on **Ethereum mainnet** and common **testnets** (e.g., Sepolia).
+> **Overview**: This hands-on guide helps new users install MetaMask, create or import a wallet safely, fund it, switch networks, send/receive assets, swap tokens, connect to dApps, and manage approvals. It also covers security best practices, troubleshooting, and a quick glossary. Written for non‑custodial wallet beginners on **Ethereum mainnet** and common **testnets** (e.g., Sepolia).
 
 ---
 
 ## Table of Contents
+
 1. [What is MetaMask?](#what-is-metamask)
 2. [Prerequisites](#prerequisites)
 3. [Install MetaMask](#install-metamask)
@@ -24,11 +25,15 @@
 ---
 
 ## What is MetaMask?
+
 **MetaMask** is a non‑custodial crypto wallet and gateway to Web3. It stores your **wallet keys locally** in your browser extension or mobile app, lets you **send/receive tokens**, **swap assets**, and **connect to decentralized apps (dApps)**. You control your **secret recovery phrase (SRP)**; MetaMask (and dApps) cannot recover it for you.
 
 ---
 
 ## Prerequisites
+
+Here is what you will need to get started using MetaMask:
+
 - A supported browser: **Chrome**, **Firefox**, **Brave**, or **Edge**; or the **MetaMask mobile** app (iOS/Android).
 - A secure device with up‑to‑date OS and browser.
 - Optional: a **hardware wallet** (Ledger/Trezor) for added key security.
@@ -36,14 +41,23 @@
 ---
 
 ## Install MetaMask
+
+The sections below will show you how to install MetaMask:
+
 ### Desktop (Browser Extension)
+
+Follow the steps below if you are installing MetaMask on Desktop:
+
 1. Visit the **official MetaMask site** and choose your browser’s extension store.
 2. Install **MetaMask** and pin it to your toolbar.
 3. Open the extension — you’ll see **Create a new wallet** or **Import an existing wallet**.
 
-> ⚠️ Always verify you’re installing the official extension. Avoid links from social media or ads.
+> **Note:** Always verify you’re installing the official extension. Avoid links from social media or ads.
 
 ### Mobile (iOS/Android)
+
+Follow the steps below if you are installing MetaMask on a mobile device:
+
 1. Open the **App Store** or **Google Play** and search for **MetaMask**.
 2. Install the app and open it.
 3. Choose **Create** or **Import**.
@@ -51,7 +65,12 @@
 ---
 
 ## Create or Import a Wallet
+The sections below will show you how to create or import a wallet using MetaMask:
+
 ### Create a New Wallet
+
+Follow the steps below to create a new wallet:
+
 1. Set a **strong password** (protects local access to MetaMask on your device).
 2. Securely back up your **Secret Recovery Phrase (12/24 words)**:
    - Write it down **offline**; store in two separate secure locations.
@@ -60,29 +79,44 @@
 3. Confirm the SRP by selecting words in order.
 
 ### Import an Existing Wallet
+
+Follow the steps below to import an existing wallet:
+
 1. Choose **Import** and enter your **Secret Recovery Phrase**.
 2. Set a new local **password** on this device.
 3. (Optional) Import via **JSON/Private key** for single accounts — note: SRP is preferred since it can regenerate multiple accounts.
 
-> 💡 You can create multiple accounts (Account 1, Account 2, …) under the same SRP. Each has a unique address.
+> **Tip:** You can create multiple accounts (Account 1, Account 2, …) under the same SRP. Each has a unique address.
 
 ---
 
 ## Fund Your Wallet (Mainnet & Testnets)
+
+Follow the steps below to fund your Mainnet or testnet wallet(s):
+
 ### Mainnet
+
+Follow the steps below if you are using a mainnet wallet:
+
 - **From an exchange:** Withdraw **ETH** (or tokens) to your MetaMask **0x… address**.
 - **Fiat on‑ramp:** Some regions can buy ETH directly inside MetaMask (fees vary).
 
 ### Testnets (Sepolia example)
+
+Follow the steps below if you are using a testnet wallet: 
+
 - Use a **faucet** to request test ETH for development and learning. Search “**Sepolia faucet**”, sign in (if required), and paste your **0x… address**.
 - Switch MetaMask to **Sepolia** first so you can see the test ETH when it arrives.
 
-> ⏳ Transfers can take seconds to minutes depending on network conditions.
+> **NOTE:** Transfers can take seconds to minutes depending on network conditions.
 
 ---
 
 ## Add/Select Networks
-MetaMask ships with **Ethereum Mainnet** by default. To work with testnets or other EVM networks:
+
+MetaMask ships with **Ethereum mainnet** by default. 
+
+The steps below illustrate how to work with testnets or other EVM networks:
 
 1. Click your **network dropdown** (top of MetaMask).
 2. Select a network (e.g., **Sepolia**) or **Add a network**.
@@ -93,90 +127,130 @@ MetaMask ships with **Ethereum Mainnet** by default. To work with testnets or ot
    - **Currency symbol** (e.g., ETH)
    - **Block explorer URL** (optional)
 
-> ✅ If a dApp supports **Add network** via EIP‑3085, MetaMask will prompt you with the correct details automatically.
+> **NOTE:** If a dApp supports **Add network** via EIP‑3085, MetaMask will prompt you with the correct details automatically.
 
 ---
 
 ## View & Add Tokens
-By default, MetaMask shows **ETH**. To see other tokens:
+
+By default, MetaMask shows **ETH**.
+
+To see other tokens, follow the steps below:
 
 - **Auto detection:** Toggle **Auto‑detect tokens** in Settings (varies by network).
 - **Manual add:** Click **Import tokens**, paste the token’s **contract address** (then symbol/decimals auto‑fill), and confirm.
 
-> 🧭 Get the contract address from the project’s official site or a trusted block explorer page. Avoid copy‑pasting from random posts.
+> **Note:** Get the contract address from the project’s official site or a trusted block explorer page. Avoid copy‑pasting from random posts.
 
 ---
 
 ## Send & Receive Crypto
+You can send and receive cryptocurrency using MetaMask. The sections below will guide you through the process of sending and receiving.
+
 ### Receive
+
+Follow the steps below to receive cryptocurrency using MetaMask:
+
 1. Click your **account name** to copy your **0x… address**.
 2. Share this address with the sender (or your exchange withdrawal form).
 
 ### Send
+
+Follow the steps below to send cryptocurrency using MetaMask:
+
 1. Click **Send**.
 2. Paste the recipient’s **0x… address** (double‑check the first/last 4 characters).
 3. Select **Asset** (ETH or an ERC‑20 token) and **amount**.
 4. Choose a **gas option** (MetaMask suggests a fee; you can edit).
 5. Review details and **Confirm**.
 
-> ⚠️ Transactions are **irreversible**. If you send to the wrong address or wrong network, funds may be lost.
+> ⚠️**Warning:** Transactions are **irreversible**. If you send to the wrong address or wrong network, funds may be lost.
 
 ---
 
 ## Swap Tokens in MetaMask
+
+To swap tokens using MetaMask, follow the steps below:
+
 1. Click **Swap** in MetaMask.
 2. Select **From** (e.g., ETH) and **To** (e.g., USDC).
 3. MetaMask aggregates quotes; choose the best route/price.
 4. Review **slippage**, **network fee**, and **route**, then **Confirm**.
 5. Wait for confirmation; the swapped token appears under your assets (add it if not auto‑detected).
 
-> 💡 For large trades, consider slippage tolerance and route transparency (DEX aggregators vs. single DEX).
+>**Note:** For large trades, consider slippage tolerance and route transparency (DEX aggregators vs. single DEX).
 
 ---
 
 ## Connect to a dApp
+
+You can also connect to a dApp using MetaMask. The steps below will show you how this works:
+
 1. Open a dApp (e.g., a DEX, NFT marketplace, game).
 2. Click **Connect Wallet** → **MetaMask**.
 3. MetaMask shows a **connection prompt** listing **accounts** and the **permissions** requested (e.g., view address, suggest transactions).
 4. **Approve** connection (or **Reject**). You can disconnect later.
 
-**Switching accounts & networks**
+### Switching accounts & networks
+
+You can switch accounts and networks in the dApp. When doing so, keep the following in mind:
+
 - Your **active account** is the one the dApp sees; switch it via MetaMask’s account menu.
 - If the dApp requires a different network, MetaMask can **switch networks** on prompt; confirm to proceed.
 
 ---
 
 ## Manage Approvals & Permissions
-**Token Approvals (ERC‑20 / NFT)**
+
+The following sections will show you how to manage approvals and permissions in MetaMask.
+
+### Token Approvals (ERC‑20 / NFT)
+
+Token approvals using the dApp in MetaMask has the following approval/permission process:
+
 - Interacting with some dApps requires an **approval** that lets a smart contract spend your tokens/NFTs.
 - When prompted, review the **spender contract** and **allowance** (unlimited vs. custom amount).
 - To **revoke** or **reduce** allowances later, use:
   - MetaMask’s **Connected sites** / **Permissions** panels, and/or
   - A reputable **token approval manager** dApp (search “revoke token approvals”) and follow on‑chain revoke steps.
 
-**Site Connections**
-- In MetaMask **Settings → Security & Privacy → Connected sites**, review and **disconnect** any dApps you no longer use.
+### Site Connections
 
-> 🔐 Limiting approvals reduces risk if a dApp or contract is compromised.
+In MetaMask **Settings → Security & Privacy → Connected sites**, review and **disconnect** any dApps you no longer use.
+
+> **Note:** Limiting approvals reduces risk if a dApp or contract is compromised.
 
 ---
 
 ## Gas Fees (EIP‑1559) & Settings
-Ethereum uses **EIP‑1559** fee fields:
+
+Ethereum uses **EIP‑1559** fee fields for gas fees.
+
+This indicates the following:
+
 - **Max base fee** (protocol‑determined, dynamic)
 - **Max priority fee** (aka “tip” to miners/validators)
 - **Max fee** (ceiling you’re willing to pay)
 
-**In MetaMask:**
+In MetaMask:
+
 - Choose **Low / Market / Aggressive** presets or **Advanced** to set custom **max fee** and **priority fee**.
 - For urgent txs (e.g., NFT mint), use a higher **priority fee**; for routine transfers, default presets are fine.
 
-**Speed Up / Cancel**
-- If a tx is pending, you can **Speed Up** (send a replacement with higher fee) or **Cancel** (send a 0‑value replacement to yourself with higher fee) — success isn’t guaranteed but often works if the original hasn’t been mined.
+## Speed Up / Cancel
+
+The following apply to speeding up or cancelling a transaction:
+
+- If a tx is pending, you can **Speed Up** (send a replacement with higher fee).
+- You can also **Cancel** (send a 0‑value replacement to yourself with higher fee).
+- Success isn’t guaranteed but often works if the original hasn’t been mined.
 
 ---
 
 ## Troubleshooting
+
+The following information may be useful for troubleshooting within MetaMask:
+
 - **“Insufficient funds for gas”**: Reduce amount, increase funds, or switch to a cheaper time; ensure you have **ETH** for gas (even when sending tokens).
 - **Token not showing**: Add the **token contract** via **Import tokens**.
 - **Wrong network**: Switch the network to where funds exist; assets are network‑specific.
@@ -187,6 +261,9 @@ Ethereum uses **EIP‑1559** fee fields:
 ---
 
 ## Security Best Practices
+
+Follow the best practices below to keep your MetaMask account secure:
+
 - **Protect your Secret Recovery Phrase** (offline, never share).
 - Prefer **hardware wallets** for large balances.
 - Lock MetaMask when not in use (click **Lock**).
@@ -199,6 +276,9 @@ Ethereum uses **EIP‑1559** fee fields:
 ---
 
 ## Glossary
+
+You can check the glossary below to learn more about the terms you encountered in this guide:
+
 - **Account / Address**: Your public identifier starting with **0x…**; derived from your private key.
 - **Secret Recovery Phrase (SRP)**: 12/24 words that can regenerate your keys. Loss = loss of funds.
 - **Gas / Fees**: Payment to validators to include your transaction in a block.
@@ -209,10 +289,13 @@ Ethereum uses **EIP‑1559** fee fields:
 
 ---
 
-### Quick Checklist (for Assignments)
+### Quick Checklist
+
+Refer to the checklist below to set up your MetaMask account for the first time:
+
 - [ ] Installed MetaMask on desktop or mobile
 - [ ] Created/imported wallet and secured the SRP
-- [ ] Funded on **Sepolia** (faucet) or Mainnet (exchange/on‑ramp)
+- [ ] Funded on **Sepolia** (faucet) or mainnet (exchange/on‑ramp)
 - [ ] Added/selected correct network
 - [ ] Added token (manual or auto‑detect)
 - [ ] Sent and received a small test amount
@@ -223,4 +306,7 @@ Ethereum uses **EIP‑1559** fee fields:
 ---
 
 ### Attribution
+
 Prepared for **WriteTech Accelerator – Option B (Web3 User Guide)**. This guide focuses on a safe, beginner‑friendly path to using MetaMask for Ethereum mainnet and testnets.
+
+--

@@ -28,6 +28,7 @@ Mainnet  : https://eth-mainnet.g.alchemy.com/v2/YOUR_API_KEY
 Sepolia  : https://eth-sepolia.g.alchemy.com/v2/YOUR_API_KEY
 Holesky  : https://eth-holesky.g.alchemy.com/v2/YOUR_API_KEY
 ```
+8
 (See Alchemy’s network pages for current endpoints and chain IDs.)
 
 ### 1.3 Minimal request shape (JSON‑RPC 2.0)
@@ -43,7 +44,7 @@ All calls are `POST` requests with a JSON body:
 }
 ```
 
-(JSON‑RPC 2.0 requires `jsonrpc`, `id`, `method`, and `params`.)
+(`JSON‑RPC 2.0` requires `jsonrpc`, `id`, `method`, and `params`.)
 
 ### 1.4 Recommended tooling
 
@@ -53,11 +54,11 @@ All calls are `POST` requests with a JSON body:
 
 ---
 
-## 2) Quick Connectivity Check
+## 2) Quick connectivity check
 
 Use `eth_blockNumber` to confirm your URL + key work:
 
-### curl
+### Curl example
 
 ```bash
 curl -s https://eth-sepolia.g.alchemy.com/v2/YOUR_API_KEY   -H "Content-Type: application/json" -X POST   -d '{"jsonrpc":"2.0","id":1,"method":"eth_blockNumber","params":[]}'
@@ -79,12 +80,14 @@ Returns the account balance (in **Wei**) for a given address at a specified bloc
 
 ### 3.2 Parameters
 
+The following parameters are returned:
+
 - `address` (string) — the 20‑byte hex address (0x‑prefixed)
 - `block` (string | hex) — `"latest"`, `"earliest"`, `"pending"`, or a **hex block number**
 
 ### 3.3 Example A — Latest balance (Sepolia)
 
-#### curl
+#### Curl example
 
 ```bash
 curl -s https://eth-sepolia.g.alchemy.com/v2/YOUR_API_KEY   -H "Content-Type: application/json" -X POST   -d '{
@@ -107,7 +110,7 @@ curl -s https://eth-sepolia.g.alchemy.com/v2/YOUR_API_KEY   -H "Content-Type: ap
 
 ### Convert to ETH
 
-```
+```bash
 1 ETH = 10^18 Wei
 ```
 
@@ -343,19 +346,20 @@ Below, you'll find some common request shape problems:
 - **Protect your API key** — keep it server‑side or in secure env vars; never expose keys in public frontends. See [Alchemy Quickstart](https://www.alchemy.com/docs/wallets/low-level-infra/quickstart) and [RPC setup](https://www.alchemy.com/docs/how-to-read-data-with-json-rpc) guidance.
 - Prefer **EIP‑1559** fee fields (`maxFeePerGas`, `maxPriorityFeePerGas`); fall back to legacy `gasPrice` only if needed.
 - Use **hex strings** for quantities (e.g., block numbers) and addresses with `0x` prefix (JSON‑RPC convention). 
-- Test first on **Sepolia/Holesky**, then switch the **base URL** to Mainnet for production. 
+- Test first on **Sepolia/Holesky**, then switch the **base URL** to mainnet for production. 
 
 ---
 
 ## 8) Optional: Multi‑Chain Notes (Where Supported by Alchemy)
 
-While this guide centers on Ethereum networks, the Node API is used across chains. You can adapt the same JSON‑RPC request pattern to other EVM chains by swapping the **base URL** to the target chain’s RPC and using the correct **chainId**. See Alchemy’s Chain APIs overview for supported chains. 
+While this guide centers on Ethereum networks, the Node API is used across chains. You can adapt the same `JSON‑RPC` request pattern to other EVM chains by swapping the **base URL** to the target chain’s RPC and using the correct **chainId**. See Alchemy’s Chain APIs overview for supported chains. 
 
 ---
 
 ## 9) Appendix: Handy Snippets
 
-**Fetch latest N blocks (JS)**
+### Fetch latest N blocks (JS)
+
 ```js
 import { JsonRpcProvider } from "ethers";
 const provider = new JsonRpcProvider("https://eth-mainnet.g.alchemy.com/v2/YOUR_API_KEY");
@@ -370,7 +374,8 @@ for (let i = 0; i < 5; i++) {
 console.log(blocks.map(b => b.number));
 ```
 
-**Get receipt & status (Python)**
+### Get receipt & status (Python)
+
 ```python
 from web3 import Web3
 w3 = Web3(Web3.HTTPProvider("https://eth-sepolia.g.alchemy.com/v2/YOUR_API_KEY"))
@@ -383,9 +388,11 @@ print(rcpt.status)  # 1 = success, 0 = reverted
 
 ## 10) What You’ve Learned
 
+Here is a quick breakdown of what you've learned in this article:
+
 - How to authenticate and connect to **Ethereum mainnet/testnets** via Alchemy Node API  
 - How to **read** balances and blocks with `eth_getBalance` and `eth_getBlockByNumber`  
 - How to **write** transactions using `eth_sendRawTransaction` with safe signing patterns  
 - How to debug JSON‑RPC errors and avoid common pitfalls
 
-For deeper reference and up‑to‑date endpoints, consult Alchemy’s Node API pages and network quickstarts. 
+For more information, consult [Alchemy’s Node API pages](https://www.alchemy.com/docs/reference/node-api-overview) and [network quickstarts](https://www.alchemy.com/docs/choosing-a-web3-network#networks--their-details). 
